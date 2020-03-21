@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="w3-padding-64 w3-display-container w3-center">
+
+    <h1 class="w3-center w3-padding w3-text-teal"> Randomly generated numbers for {{ body }}</h1>
+    <br>
+    {% for num in sorted_random_nums %}
+        <span class="w3-badge w3-xlarge w3-red w3-padding">{{ num }}</span>
+    {% endfor %}
+    {% for bonus in sorted_bonus_nums %}
+        <span class="w3-badge w3-xlarge w3-yellow w3-padding">{{ bonus }}</span>
+    {% endfor %}
+    <p class="w3-center w3-padding-16">
+        <small> No guarantees these numbers will win any prize, but feel free to try them on the next draw.</small>
+        <br>
+        <small> Just refresh page to generate a new set of numbers</small>
+    </p>
+</section>
+
+<section class="w3-padding-64 w3-responsive w3-display-container w3-centered">
+    <h1 class="w3-center w3-padding w3-text-teal"> Previous draw history for {{ body }}</h1>
+    <br>
+    <table class="w3-table-all w3-center w3-border-teal">
+        <tr>
+            <th>Draw Date</th>
+            <th>Ball 1</th>
+            <th>Ball 2</th>
+            <th>Ball 3</th>
+            <th>Ball 4</th>
+            <th>Ball 5</th>
+            <th>Main Total</th>
+            <th>Average</th>
+            <th>Bonus 1</th>
+            <th>Bonus 2</th>
+            <th>Bonus Total</th>
+            <th>Bonus Average</th>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+    </table>
+</section>
+
+{% endblock %}

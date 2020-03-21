@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{body}}</h1>
+{% if session is not None %}
+<p class="session">Here's our session variable: <span class="variable">{{session_variable}}</span></p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+<nav class="navigation-default w3-bar w3-teal">
+            <div class="nav-wrapper left-nav">
+        <a href="{{ url_for('main.home') }}" class="w3-bar-item w3-button w3-large w3-mobile">Home</a>
+        <div class="w3-dropdown-hover w3-mobile">
+            <button class="w3-button">Passwords <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                <a href="{{ url_for('password.random') }}" class="w3-bar-item w3-button w3-mobile">Random Generated</a>
+                <a href="{{ url_for('password.words') }}" class="w3-bar-item w3-button w3-mobile">Word Generated</a>
+            </div>
+        </div>
+        <div class="w3-dropdown-hover w3-mobile">
+            <button class="w3-button">Converters <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                <a href="{{ url_for('convert.temps') }}" class="w3-bar-item w3-button w3-mobile">Temperature</a>
+                <a href="{{ url_for('convert.weights') }}" class="w3-bar-item w3-button w3-mobile">Weights</a>
+                <a href="{{ url_for('convert.measurement') }}" class="w3-bar-item w3-button w3-mobile">Measurement</a>
+            </div>
+        </div>
+        <a href="{{ url_for('main.about') }}" class="w3-bar-item w3-button w3-large w3-mobile">About</a>
+    </div>
+    <div class="right-nav">
+        <a href="{{ url_for('users.login_user') }}" class="w3-bar-item w3-button w3-large w3-right w3-mobile">Login</a>
+        <a href="{{ url_for('users.register_user') }}" class="w3-bar-item w3-button w3-large w3-right w3-mobile">Register</a>
+    </div>
+</nav>
+

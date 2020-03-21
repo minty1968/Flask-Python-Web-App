@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %} Unauthorised {% endblock %}
+{% block content %}
+<h1>403 Error :(</h1>
+<p>Sorry but you seem to be accessing something you are not allowed to.</p>
+<a href="{{ url_for('main.index') }}">go back home to play</a>
+{% endblock %}

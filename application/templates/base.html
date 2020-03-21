@@ -1,0 +1,27 @@
+<!--  base.html  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'meta.html' %}
+  {% include 'styles.html' %}
+</head>
+
+<body class="{{template}}">
+  {% if session['email'] %}
+     {% include 'navigation-loggedin.html' %}
+  {% else %}
+     {% include 'navigation-default.html' %}
+  {% endif %}
+
+  {% block content %}
+  <!-- Content goes here -->
+  {% endblock %}
+
+  <!-- Scripts -->
+  {% include 'scripts.html' %}
+  {% include 'footer.html'  %}
+</body>
+
+</html>
+

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="w3-container w3-third w3-hide-small w3-hide-medium w3-padding-64">
+    <form action="" class="w3-center w3-padding w3-border" method="POST">
+        <h2> {{ body }} </h2>
+        {{ form.csrf_token }}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="w3-panel w3-red">
+            <span>{{ message }}</span>
+            <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-field w3-padding-16 w3-center w3-panel w3-round-large">{{ form.email.label (class = "w3-label
+            w3-text-teal") }} {{ form.email (class="w3-input w3-border w3-round-large w3-light-grey w3-validate",
+            style="width:100%") }}
+            {% if form.email.errors %}
+            <ul class="errors">
+                {% for error in form.email.errors %}
+                <li class="w3-red" style="width:100%">{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-field w3-padding-16 w3-center w3-panel w3-round-large">
+            {{ form.password.label (class = "w3-label w3-text-teal") }}
+            {{ form.password (class="w3-input w3-border w3-round-large w3-light-grey w3-validate", style="width:100%")
+            }}
+            {% if form.password.errors %}
+            <ul class="errors">
+                {% for error in form.password.errors %}
+                <li class="w3-red" style="width:100%">{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p class="w3-container w3-padding w3-center">{{ form.submit (class="w3-teal w3-padding") }}</p>
+
+        <p class="w3-container w3-padding w3-center">
+            <span>Don't have an account? <a href="{{ url_for('users.register_user') }}">Sign up.</a></span>
+        </p>
+
+    </form>
+</div>
+
+{% endblock %}
+
