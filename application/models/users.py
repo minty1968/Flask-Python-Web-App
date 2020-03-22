@@ -1,11 +1,11 @@
 import uuid
-
 from flask import session, flash
-from application.common.database import Database
-from application.common.utils import Utils
+from flask_login import UserMixin
+
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class User(object):
+class User(UserMixin, db.Model):
     def __init__(self, email, password, _id=None):
         self.email = email
         self.password = password
@@ -27,13 +27,10 @@ class User(object):
             return cls(**data)
 
     @staticmethod
-    def is_login_valid(email, password):
+    def login_valid(email, password):
         """
         This method verifies that an e-mail/password combo (as sent by the site forms) is valid or not.
         Checks that the e-mail exists, and that the password associated to that e-mail is correct.
-        :param email: The user's email
-        :param password: A sha512 hashed password
-        :return: True if valid, False otherwise
         """
         user_data = Database.find_one("users", {"email": email})  # Password in sha512 -> pbkdf2_sha512
         print(user_data)
@@ -50,9 +47,6 @@ class User(object):
         """
         This method registers a user using e-mail and password.
         The password already comes hashed as sha-512.
-        :param email: user's e-mail (might be invalid)
-        :param password: sha512-hashed password
-        :return: True if registered successfully, or False otherwise (exceptions can also be raised)
         """
         flash("I'm in the registration function")
         user_data = Database.find_one("users", {"email": email})

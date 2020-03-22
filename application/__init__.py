@@ -12,8 +12,10 @@ def create_app():
     # Initialize Plugins
     Database.initialize()
     login_manager.init_app(app)
+
     # Application Configuration
     app.config.from_object('config.Config')
+
     with app.app_context():
         # Import parts of our application
         from application.views.admin import admin_bp
@@ -24,6 +26,7 @@ def create_app():
         from application.views.quiz import quiz_bp
         from application.views.password import password_bp
         from application.views.users import users_bp
+
         # Register Blueprints
         app.register_blueprint(admin_bp)
         app.register_blueprint(main_bp)
