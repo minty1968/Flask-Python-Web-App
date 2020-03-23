@@ -30,40 +30,25 @@
             <th>Ball 6</th>
             <th>Total</th>
             <th>Average</th>
+            <th>Bonus Set</th>
+            <th>Machine</th>
         </tr>
-        <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-        </tr>
+        {% for item in lottery_data %}
+            <tr>
+                <td>{{ item._id }}</td>
+                <td>{{ item.Ball1 }}</td>
+                <td>{{ item.Ball2 }}</td>
+                <td>{{ item.Ball3 }}</td>
+                <td>{{ item.Ball4 }}</td>
+                <td>{{ item.Ball5 }}</td>
+                <td>{{ item.Ball6 }}</td>
+                <td>{{ item.Total }}</td>
+                <td>{{ item.Average }}</td>
+                <td>{{ item.Ball_Set }}</td>
+                <td>{{ item.Machine }}</td>
+            </tr>
+        {% endfor %}
+
     </table>
 </section>
 

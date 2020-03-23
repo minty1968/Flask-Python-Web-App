@@ -19,6 +19,7 @@
 <section class="w3-padding-64 w3-responsive w3-display-container w3-centered">
     <h1 class="w3-center w3-padding w3-text-teal"> Previous draw history for {{ body }}</h1>
     <br>
+
     <table class="w3-table-all w3-center w3-border-teal">
         <tr>
             <th>Draw Date</th>
@@ -28,54 +29,21 @@
             <th>Ball 4</th>
             <th>Ball 5</th>
             <th>Main Total</th>
-            <th>Average</th>
-            <th>Bonus 1</th>
-            <th>Bonus 2</th>
-            <th>Bonus Total</th>
-            <th>Bonus Average</th>
+            <th>Main Average</th>
         </tr>
-        <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-        </tr>
+        {% for item in lottery_data %}
+            <tr>
+                <td>{{ item._id }}</td>
+                <td>{{ item.Ball1 }}</td>
+                <td>{{ item.Ball2 }}</td>
+                <td>{{ item.Ball3 }}</td>
+                <td>{{ item.Ball4 }}</td>
+                <td>{{ item.Ball5 }}</td>
+                <td>{{ item.Main_Total }}</td>
+                <td>{{ item.Main_Average }}</td>
+            </tr>
+        {% endfor %}
+
     </table>
 </section>
 

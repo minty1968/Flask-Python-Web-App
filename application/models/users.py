@@ -5,7 +5,7 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class User(UserMixin, db.Model):
+class User(object):
     def __init__(self, email, password, _id=None):
         self.email = email
         self.password = password
@@ -21,7 +21,7 @@ class User(UserMixin, db.Model):
             return cls(**data)
 
     @classmethod
-    def get_by_id(cls, _id):
+    def get_by_id(cls):
         data = Database.find_one("users", {"_id": _id})
         if data is not None:
             return cls(**data)
